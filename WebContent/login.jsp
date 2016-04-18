@@ -9,6 +9,7 @@
 <body>
 	<center>
 		<h1>登陆页面</h1>
+		<font face="楷体" color="red">${msg}</font>
 		<hr>
 		<form action="login" method="post">
 			用户名：<input type="text" name="name"><br>

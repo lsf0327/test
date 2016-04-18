@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.junit.Test;
+
 public class ConnectionFactory {
 	private static String driver;
 	private static String url;
@@ -27,9 +29,16 @@ public class ConnectionFactory {
 		//加载驱动
 		Class.forName(driver);
 		//获取连接
-		return DriverManager.getConnection(url, user, password);
-		
+		Connection con =  DriverManager.getConnection(url, user, password);
+		//System.out.println(con);
+		return con;
 	}
+	
+	@Test
+	public void test() throws Exception{
+		ConnectionFactory.getConn();
+	}
+	
 	public static void close(ResultSet rs,PreparedStatement pstmt,Connection conn) throws SQLException{
 		if(rs!=null){
 			rs.close();
